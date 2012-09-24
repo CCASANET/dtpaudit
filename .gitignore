@@ -25,3 +25,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# Data files
+dtpfiles/*.csv
+
+# Audit outcome
+auditforms/audit_*.html

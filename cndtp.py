@@ -264,7 +264,7 @@ class DTPPatient(object):
 
     Basic = None
     Follow = None
-    Visit = None
+    Visits = None
     CD4s = None
     RNAs = None
     ARTs = None
@@ -308,6 +308,8 @@ class DTPPatient(object):
             return self._addRow_Basic(newrow)
         elif isinstance(newrow, RowFollow):
             return self._addRow_Follow(newrow)
+        elif isinstance(newrow, RowVisit):
+            return self._addRow_Visit(newrow)
         elif isinstance(newrow, RowCD4):
             return self._addRow_CD4(newrow)
         elif isinstance(newrow, RowRNA):
@@ -337,6 +339,16 @@ class DTPPatient(object):
         self.Follow = newrow
         return True
         
+    def _addRow_Visit(self, newrow):
+        if not self.rowMatches(newrow):
+            print "Visit row does not match the patient. Cannot add"
+            return False
+        if self.Visits is None:
+            self.Visits = list()
+        self.Visits.append( newrow )
+        self.Visits.sort( key=lambda x: x.visit_d )
+        return True
+
     def _addRow_CD4(self, newrow):
         if not self.rowMatches(newrow):
             print "CD4 row does not match the patient. Cannot add"
@@ -344,7 +356,7 @@ class DTPPatient(object):
         if self.CD4s is None:
             self.CD4s = list()
         self.CD4s.append( newrow )
-        self.CD4s.sort( key=lambda x: x.CD4_D )
+        self.CD4s.sort( key=lambda x: x.cd4_d )
         return True
         
     def _addRow_RNA(self, newrow):
@@ -354,7 +366,7 @@ class DTPPatient(object):
         if self.RNAs is None:
             self.RNAs = list()
         self.RNAs.append( newrow )
-        self.RNAs.sort( key=lambda x: x.RNA_D )
+        self.RNAs.sort( key=lambda x: x.rna_d )
         return True
         
     def _addRow_ART(self, newrow):
@@ -364,7 +376,7 @@ class DTPPatient(object):
         if self.ARTs is None:
             self.ARTs = list()
         self.ARTs.append( newrow )
-        self.ARTs.sort( key=lambda x: x.ART_SD )
+        self.ARTs.sort( key=lambda x: x.art_sd )
         return True
         
     def rowMatches(self, newrow):

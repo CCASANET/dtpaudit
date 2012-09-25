@@ -31,10 +31,8 @@ class DTPHTML(object):
         retstring+= self._makeFollow()
         retstring+= self._makeVisits()
         retstring+= self._makeARTs()
-        """
         retstring+= self._makeCD4s()
         retstring+= self._makeRNAs()
-        """
         retstring+= '</body>\n'
         retstring+= '</html>'
         return retstring
@@ -192,13 +190,13 @@ class DTPHTML(object):
             return retstring
         retstring+= '<table class="cd4">\n'
         retstring+= '\t<tr>'
-        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th>'.format( '&nbsp;', 'Date', 'Value' )
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th>'.format( '&nbsp;', 'CD4_D (_A)', 'CD4_V', 'CD4_PER' )
         retstring+= '</tr>\n'
         rowcounter = 0
         for cd4 in cd4s:
             rowcounter+= 1
             retstring+= '\t<tr>'
-            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td>'.format( rowcounter, cd4.CD4_D, cd4.CD4_V )
+            retstring+= '<td>{0:d}</td><td>{1} ({2})</td><td>{3}</td><td>{4}</td>'.format( rowcounter, cd4.cd4_d, cd4.cd4_d_a, cd4.cd4_v, cd4.cd4_per )
             retstring+= '</tr>\n'
 
         retstring+= '</table>\n'
@@ -215,13 +213,13 @@ class DTPHTML(object):
             return retstring
         retstring+= '<table class="rna">\n'
         retstring+= '\t<tr>'
-        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th>'.format( '&nbsp;', 'Date', 'Value' )
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th><th>{5}</th>'.format( '&nbsp;', 'RNA_D (_A)', 'RNA_V', 'RNA_L', 'RNA_U', 'RNA_T' )
         retstring+= '</tr>\n'
         rowcounter = 0
         for rna in rnas:
             rowcounter+= 1
             retstring+= '\t<tr>'
-            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td>'.format( rowcounter, rna.RNA_D, rna.RNA_V )
+            retstring+= '<td>{0:d}</td><td>{1} ({2})</td><td>{3}</td><td>{4}</td><td>{5}</td><td>{6}</td>'.format( rowcounter, rna.rna_d, rna.rna_d_a, rna.rna_v, rna.rna_l, rna.rna_u, rna.rna_t )
             retstring+= '</tr>\n'
 
         retstring+= '</table>\n'

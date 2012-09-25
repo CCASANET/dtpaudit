@@ -28,8 +28,8 @@ class DTPHTML(object):
     def _makeBody(self):
         retstring = '<body>\n'
         retstring+= self._makeBasic()
-        """
         retstring+= self._makeFollow()
+        """
         retstring+= self._makeVisits()
         retstring+= self._makeARTs()
         retstring+= self._makeCD4s()
@@ -93,20 +93,44 @@ class DTPHTML(object):
         retstring+= '<br />\n'
         return retstring
 
-    def _makeDeath(self):
+    def _makeFollow(self):
         retstring = ''
-        retstring+= '<h1>DEATH</h1>\n'
-        death = self._patient.Death
-        if death is None:
-            retstring+= '<h2>No record in DEATH found</h2>\n'
+        retstring+= '<h1>FOLLOW</h1>\n'
+        follow = self._patient.Follow
+        if follow is None:
+            retstring+= '<h2>No record in FOLLOW found</h2>\n'
             retstring+= '<br />\n'
             return retstring
-        retstring+= '<table class="death">\n'
+        retstring+= '<table class="follow">\n'
         retstring+= '\t<tr>'
-        retstring+= '<td>{0}</td><td>{1}</td>'.format( 'Dead', 'Date of Death' )
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DROP_Y', 'DROP_D', 'DROP_RS' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
-        retstring+= '<td>{0}</td><td>{1}</td>'.format( death.DEATH_Y, death.DEATH_D )
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.drop_y, follow.drop_d, follow.drop_rs )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_Y', 'DEATH_D', 'L_ALIVE_D' )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_y, follow.death_d, follow.l_alive_d )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_R1', 'DEATH_RC1', 'DEATH_OTH1' )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r1, follow.death_rc1, follow.death_oth1 )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_R2', 'DEATH_RC2', 'DEATH_OTH2' )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r2, follow.death_rc2, follow.death_oth2 )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_R3', 'DEATH_RC3', 'DEATH_OTH3' )
+        retstring+= '</tr>\n'
+        retstring+= '\t<tr>'
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r3, follow.death_rc3, follow.death_oth3 )
         retstring+= '</tr>\n'
         retstring+= '</table>\n'
         retstring+= '<br />\n'

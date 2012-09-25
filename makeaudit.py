@@ -41,8 +41,8 @@ for patientid in patientids:
     thispatient.addRow( thisrowbasic )
     patients.append( thispatient )
 
-# For debugging
-#patients = patients[:1]
+# Uncomment for debugging
+patients = patients[:1]
 for patient in patients:
     print "Looking for patient {0} {1}".format( patient._site, patient._patient )
     foundbasics = findRows( patient, basics )

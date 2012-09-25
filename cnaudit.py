@@ -30,8 +30,8 @@ class DTPHTML(object):
         retstring+= self._makeBasic()
         retstring+= self._makeFollow()
         retstring+= self._makeVisits()
-        """
         retstring+= self._makeARTs()
+        """
         retstring+= self._makeCD4s()
         retstring+= self._makeRNAs()
         """
@@ -169,13 +169,13 @@ class DTPHTML(object):
             return retstring
         retstring+= '<table class="art">\n'
         retstring+= '\t<tr>'
-        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th>'.format( '&nbsp;', 'Regimen', 'Start Date', 'End Date', 'Reason for Change' )
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th><th>{5}</th>'.format( '&nbsp;', 'ART_ID', 'ART_SD (_A)', 'ART_ED (_A)', 'ART_RS', 'ART_RS_OTH' )
         retstring+= '</tr>\n'
         rowcounter = 0
         for art in arts:
             rowcounter+= 1
             retstring+= '\t<tr>'
-            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td>'.format( rowcounter, art.ART_ID, art.ART_SD, art.ART_ED, art.ART_RS )
+            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2} ({3})</td><td>{4} ({5})</td><td>{6}</td><td>{7}</td>'.format( rowcounter, art.art_id, art.art_sd, art.art_sd_a, art.art_ed, art.art_ed_a, art.art_rs, art.art_rs_oth )
             retstring+= '</tr>\n'
 
         retstring+= '</table>\n'

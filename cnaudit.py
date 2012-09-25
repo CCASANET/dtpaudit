@@ -29,8 +29,8 @@ class DTPHTML(object):
         retstring = '<body>\n'
         retstring+= self._makeBasic()
         retstring+= self._makeFollow()
-        """
         retstring+= self._makeVisits()
+        """
         retstring+= self._makeARTs()
         retstring+= self._makeCD4s()
         retstring+= self._makeRNAs()
@@ -132,6 +132,29 @@ class DTPHTML(object):
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r3, follow.death_rc3, follow.death_oth3 )
         retstring+= '</tr>\n'
+        retstring+= '</table>\n'
+        retstring+= '<br />\n'
+        return retstring
+
+    def _makeVisits(self):
+        retstring = ''
+        retstring+= '<h1>VISIT</h1>\n'
+        visits = self._patient.Visits
+        if visits is None:
+            retstring+='<h2>No records in VISIT found</h2>\n'
+            retstring+='<br />'
+            return retstring
+        retstring+= '<table class="visit">\n'
+        retstring+= '\t<tr>'
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th>'.format( '&nbsp;', 'VISIT_D', 'LOCATION', 'CDCSTAGE', 'WHOSTAGE' )
+        retstring+= '</tr>\n'
+        rowcounter = 0
+        for visit in visits:
+            rowcounter+= 1
+            retstring+= '\t<tr>'
+            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td>'.format( rowcounter, visit.visit_d, visit.location, visit.cdcstage, visit.whostage )
+            retstring+= '</tr>\n'
+
         retstring+= '</table>\n'
         retstring+= '<br />\n'
         return retstring

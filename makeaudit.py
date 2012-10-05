@@ -4,6 +4,7 @@ import cndtp
 import cnaudit
 import csv
 
+
 def findRows( patient, dtptable ):
     retlist = list()
     if patient.isAnonymous():

@@ -33,6 +33,7 @@ class DTPHTML(object):
         retstring+= self._makeARTs()
         retstring+= self._makeCD4s()
         retstring+= self._makeRNAs()
+        retstring+= self._makeCEs()
         retstring+= '</body>\n'
         retstring+= '</html>'
         return retstring
@@ -226,4 +227,25 @@ class DTPHTML(object):
         retstring+= '<br />\n'
         return retstring
 
+    def _makeCEs(self):
+        retstring = ''
+        retstring+= '<h1>CEs</h1>\n'
+        ces = self._patient.CEs
+        if ces is None:
+            retstring+='<h2>No records in CE found</h2>\n'
+            retstring+='<br />'
+            return retstring
+        retstring+= '<table class="ce">\n'
+        retstring+= '\t<tr>'
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th><th>{5}</th><th>{6}</th>'.format( '&nbsp;', 'CE_D (_A)', 'CE_ID', 'LOCAL_TABLE', 'LOCAL_ID', 'LOCAL_OTH', 'LOCAL_OTH1' )
+        retstring+= '</tr>\n'
+        rowcounter = 0
+        for ce in ces:
+            rowcounter+= 1
+            retstring+= '\t<tr>'
+            retstring+= '<td>{0:d}</td><td>{1} ({2})</td><td>{3}</td><td>{4}</td><td>{5}</td><td>{6}</td><td>{7}</td>'.format( rowcounter, ce.ce_d, ce.ce_d_a, ce.ce_id, ce.local_table, ce.local_id, ce.local_oth, ce.local_oth1 )
+            retstring+= '</tr>\n'
 
+        retstring+= '</table>\n'
+        retstring+= '<br />\n'
+        return retstring

@@ -50,44 +50,58 @@ class DTPHTML(object):
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'SITE', 'CENTER', 'PATIENT' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
-        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.site, 'Not prepared', basic.patient )
+        retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.site, basic.center, basic.patient )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'MALE', 'BIRTH_D', 'BIRTH_D_A' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.male, basic.birth_d, basic.birth_d_a )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'MODE', 'MODE_OTH', '&nbsp;')
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.mode, basic.mode_oth, '&nbsp;' )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'HIVDIAGNOSIS_D (_A)', 'FIRSTVIS_D (_A)', 'ENROL_D (_A)' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0} ({3})</td><td>{1} ({4})</td><td>{2} ({5})</td>'.format( basic.hivdiagnosis_d, basic.firstvis_d, basic.enrol_d, basic.hivdiagnosis_d_a, basic.firstvis_d_a, basic.enrol_d_a )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'AIDS_Y', 'AIDS_D', 'AIDS_D_A' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.aids_y, basic.aids_d, basic.aids_d_a )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'RECART_Y', 'RECART_D', 'RECART_D_A' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.recart_y, basic.recart_d, basic.recart_d_a )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'CDCSTAGE', 'WHOSTAGE', '&nbsp;' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( basic.cdcstage, basic.whostage, '&nbsp;' )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '</table>\n'
         retstring+= '<br />\n'
         return retstring
@@ -107,30 +121,40 @@ class DTPHTML(object):
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.drop_y, follow.drop_d, follow.drop_rs )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_Y', 'DEATH_D', 'L_ALIVE_D' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_y, follow.death_d, follow.l_alive_d )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_R1', 'DEATH_RC1', 'DEATH_OTH1' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r1, follow.death_rc1, follow.death_oth1 )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_R2', 'DEATH_RC2', 'DEATH_OTH2' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r2, follow.death_rc2, follow.death_oth2 )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( 'DEATH_R3', 'DEATH_RC3', 'DEATH_OTH3' )
         retstring+= '</tr>\n'
         retstring+= '\t<tr>'
         retstring+= '<td>{0}</td><td>{1}</td><td>{2}</td>'.format( follow.death_r3, follow.death_rc3, follow.death_oth3 )
         retstring+= '</tr>\n'
+        retstring+= self.makeEmptyRow(3)
+        retstring+= self.makeEmptyRow(3)
         retstring+= '</table>\n'
         retstring+= '<br />\n'
         return retstring
@@ -145,7 +169,7 @@ class DTPHTML(object):
             return retstring
         retstring+= '<table class="visit">\n'
         retstring+= '\t<tr>'
-        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th><th>{5} ({6})</th><th>{7} ({8})</th>'.format( '&nbsp;', 'VISIT_D', 'LOCATION', 'CDCSTAGE', 'WHOSTAGE', 'WIGHT', '_U', 'HEIGHT', '_U' )
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th><th>{5} ({6})</th><th>{7} ({8})</th>'.format( '&nbsp;', 'VISIT_D', 'LOCATION', 'CDCSTAGE', 'WHOSTAGE', 'WEIGHT', '_U', 'HEIGHT', '_U' )
         retstring+= '</tr>\n'
         rowcounter = 0
         for visit in visits:
@@ -153,7 +177,8 @@ class DTPHTML(object):
             retstring+= '\t<tr>'
             retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5} ({6})</td><td>{7} ({8})</td>'.format( rowcounter, visit.visit_d, visit.location, visit.cdcstage, visit.whostage, visit.weight, visit.weight_u, visit.height, visit.height_u )
             retstring+= '</tr>\n'
-
+            retstring+= self.makeEmptyRow(7)
+            retstring+= self.makeEmptyRow(7)
         retstring+= '</table>\n'
         retstring+= '<br />\n'
         return retstring
@@ -176,6 +201,8 @@ class DTPHTML(object):
             retstring+= '\t<tr>'
             retstring+= '<td>{0:d}</td><td>{1}</td><td>{2} ({3})</td><td>{4} ({5})</td><td>{6}</td><td>{7}</td>'.format( rowcounter, art.art_id, art.art_sd, art.art_sd_a, art.art_ed, art.art_ed_a, art.art_rs, art.art_rs_oth )
             retstring+= '</tr>\n'
+            retstring+= self.makeEmptyRow(6)
+            retstring+= self.makeEmptyRow(6)
 
         retstring+= '</table>\n'
         retstring+= '<br />\n'
@@ -199,6 +226,8 @@ class DTPHTML(object):
             retstring+= '\t<tr>'
             retstring+= '<td>{0:d}</td><td>{1} ({2})</td><td>{3}</td><td>{4}</td>'.format( rowcounter, cd4.cd4_d, cd4.cd4_d_a, cd4.cd4_v, cd4.cd4_per )
             retstring+= '</tr>\n'
+            retstring+= self.makeEmptyRow(4)
+            retstring+= self.makeEmptyRow(4)
 
         retstring+= '</table>\n'
         retstring+= '<br />\n'
@@ -222,6 +251,8 @@ class DTPHTML(object):
             retstring+= '\t<tr>'
             retstring+= '<td>{0:d}</td><td>{1} ({2})</td><td>{3}</td><td>{4}</td><td>{5}</td><td>{6}</td>'.format( rowcounter, rna.rna_d, rna.rna_d_a, rna.rna_v, rna.rna_l, rna.rna_u, rna.rna_t )
             retstring+= '</tr>\n'
+            retstring+= self.makeEmptyRow(6)
+            retstring+= self.makeEmptyRow(6)
 
         retstring+= '</table>\n'
         retstring+= '<br />\n'
@@ -245,7 +276,16 @@ class DTPHTML(object):
             retstring+= '\t<tr>'
             retstring+= '<td>{0:d}</td><td>{1} ({2})</td><td>{3}</td><td>{4}</td><td>{5}</td><td>{6}</td><td>{7}</td>'.format( rowcounter, ce.ce_d, ce.ce_d_a, ce.ce_id, ce.local_table, ce.local_id, ce.local_oth, ce.local_oth1 )
             retstring+= '</tr>\n'
+            retstring+= self.makeEmptyRow(7)
+            retstring+= self.makeEmptyRow(7)
 
         retstring+= '</table>\n'
         retstring+= '<br />\n'
+        return retstring
+
+    def makeEmptyRow(self, numcells):
+        retstring = '\t<tr>'
+        cellstring = '<td>&nbsp;</td>' * int( numcells )
+        retstring+= cellstring
+        retstring+= '</tr>\n'
         return retstring

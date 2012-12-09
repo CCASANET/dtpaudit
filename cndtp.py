@@ -87,6 +87,17 @@ class DTPSchema(object):
             'rna_u', 
             'rna_t',
             )
+    CE = ( 
+            'patient', 
+            'site',
+            'ce_d', 
+            'ce_d_a', 
+            'ce_id', 
+            'local_table', 
+            'local_id', 
+            'local_oth', 
+            'local_oth1', 
+            )
 
 class DTPRow(object):
     _scheme = None

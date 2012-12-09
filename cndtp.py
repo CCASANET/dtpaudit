@@ -49,9 +49,14 @@ class DTPSchema(object):
             'patient', 
             'site', 
             'visit_d', 
+            'visit_d_a',
             'location', 
             'whostage', 
             'cdcstage',
+            'weight',
+            'weight_u',
+            'height',
+            'height_u',
             )
     ART = (
             'patient', 

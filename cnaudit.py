@@ -144,13 +144,13 @@ class DTPHTML(object):
             return retstring
         retstring+= '<table class="visit">\n'
         retstring+= '\t<tr>'
-        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th>'.format( '&nbsp;', 'VISIT_D', 'LOCATION', 'CDCSTAGE', 'WHOSTAGE' )
+        retstring+= '<th>{0}</th><th>{1}</th><th>{2}</th><th>{3}</th><th>{4}</th><th>{5} ({6})</th><th>{7} ({8})</th>'.format( '&nbsp;', 'VISIT_D', 'LOCATION', 'CDCSTAGE', 'WHOSTAGE', 'WIGHT', '_U', 'HEIGHT', '_U' )
         retstring+= '</tr>\n'
         rowcounter = 0
         for visit in visits:
             rowcounter+= 1
             retstring+= '\t<tr>'
-            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td>'.format( rowcounter, visit.visit_d, visit.location, visit.cdcstage, visit.whostage )
+            retstring+= '<td>{0:d}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5} ({6})</td><td>{7} ({8})</td>'.format( rowcounter, visit.visit_d, visit.location, visit.cdcstage, visit.whostage, visit.weight, visit.weight_u, visit.height, visit.height_u )
             retstring+= '</tr>\n'
 
         retstring+= '</table>\n'

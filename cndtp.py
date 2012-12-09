@@ -6,6 +6,7 @@ class DTPSchema(object):
     BASIC = ( 
             'patient', 
             'site', 
+            'center',
             'male', 
             'birth_d', 
             'birth_d_a', 

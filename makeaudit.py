@@ -21,6 +21,7 @@ visits = cndtp.TableVisit('dtpfiles/visit.csv')
 arts = cndtp.TableART('dtpfiles/art.csv')
 cd4s = cndtp.TableCD4('dtpfiles/lab_cd4.csv')
 rnas = cndtp.TableRNA('dtpfiles/lab_rna.csv')
+ces = cndtp.TableCE('dtpfiles/ce.csv')
 
 """
 Read list of patients to make HTML forms for
@@ -58,6 +59,8 @@ for patient in patients:
     print "Found {0:d} rows in CD4s, {1:d} added successfully".format( len( foundcd4s ), patient.addRows( foundcd4s ) )
     foundrnas = findRows( patient, rnas )
     print "Found {0:d} rows in RNAs, {1:d} added successfully".format( len( foundrnas ), patient.addRows( foundrnas ) )
+    foundces = findRows( patient, ces )
+    print "Found {0:d} rows in CEs, {1:d} added successfully".format( len( foundces ), patient.addRows( foundces ) )
     print
     patientHTML = cnaudit.DTPHTML( patient )
     patientHTML.makeFile()

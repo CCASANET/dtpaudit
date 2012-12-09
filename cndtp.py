@@ -151,6 +151,9 @@ class RowCD4(DTPRow):
 class RowRNA(DTPRow):
     _scheme = 'RNA'
 
+class RowCE(DTPRow):
+    _scheme = 'CE'
+
 class DTPTable(object):
     """
     Todo:
@@ -235,6 +238,9 @@ class TableCD4(DTPTable):
 class TableRNA(DTPTable):
     _rowClass = RowRNA
 
+class TableCE(DTPTable):
+    _rowClass = RowCE
+
 
 
 class DTPTableReader(object):
@@ -284,6 +290,7 @@ class DTPPatient(object):
     CD4s = None
     RNAs = None
     ARTs = None
+    CEs = None
 
     def isAnonymous(self):
         if self._patient and self._site:

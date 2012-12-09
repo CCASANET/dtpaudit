@@ -339,6 +339,8 @@ class DTPPatient(object):
             return self._addRow_RNA(newrow)
         elif isinstance(newrow, RowART):
             return self._addRow_ART(newrow)
+        elif isinstance(newrow, RowCE):
+            return self._addRow_CE(newrow)
         else:
             print "Unrecognized DTPRow type"
             return False
@@ -400,6 +402,16 @@ class DTPPatient(object):
             self.ARTs = list()
         self.ARTs.append( newrow )
         self.ARTs.sort( key=lambda x: x.art_sd )
+        return True
+        
+    def _addRow_CE(self, newrow):
+        if not self.rowMatches(newrow):
+            print "ART row does not match the patient. Cannot add"
+            return False
+        if self.CEs is None:
+            self.CEs = list()
+        self.CEs.append( newrow )
+        self.CEs.sort( key=lambda x: x.ce_d )
         return True
         
     def rowMatches(self, newrow):
